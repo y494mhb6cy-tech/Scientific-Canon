@@ -1,0 +1,79 @@
+version: "0.1"
+mode: straight_line
+
+# Dimensional Reference Script: Coordinate system for invariant-preserving traversal
+# Implements: G: X → X' where X' ⊆ X (compression only)
+
+dimensions:
+  invariant:
+    description: "What must remain unchanged across traversal (X₀)"
+    role: "Anchor for all projection operations"
+    source: "User-provided query anchor"
+
+  transformations:
+    allowed:
+      - extract_definition      # Pull definition from cited source
+      - paraphrase_preserving   # Restate using only anchor terms
+      - derive_implication      # Logical consequence within frame
+      - reconcile_by_anchor     # Resolve conflict via anchor alignment
+    forbidden:
+      - introduce_new_frame     # Violates §2 No New Frames
+      - optimize_for_novelty    # Violates R2
+      - lateral_association     # Violates R3
+      - extend_vocabulary       # Frame expansion
+
+  stability:
+    description: "Prefer steps that reduce ambiguity and competing frames"
+    metric: "ambiguity_penalty"
+    threshold: 0.5  # Reject if ambiguity > threshold
+
+  closure:
+    rule: "Stop when no step improves invariant alignment or requires new primitives"
+    condition: "score < 0.02"
+    interpretation: "Fixed point reached: G(X) = X"
+
+  boundary:
+    rule: "If a claim cannot be grounded in repo citations, label it semantic-only and halt"
+    enforcement: "Every chain entry requires path + heading"
+
+# Scoring weights aligned with Invariant Compression Protocol
+scoring:
+  anchor_alignment_weight: 0.65    # Primary: how much does chunk preserve anchor?
+  novelty_penalty_weight: 0.25     # Penalty: new terms outside anchor vocabulary
+  ambiguity_penalty_weight: 0.10   # Penalty: hedge/uncertain language
+
+# Chain construction parameters
+chain:
+  min_steps: 3
+  max_steps: 7
+  score_threshold: 0.02            # Minimum score to continue
+
+# Moderator alignment (from Agent Loop)
+moderation:
+  recursion:
+    maps_to: "anchor vocabulary tracking"
+    function: "Lock stable references"
+  interpretation:
+    maps_to: "scoring weights"
+    function: "Weight elements by alignment"
+  observation:
+    maps_to: "trajectory convergence"
+    function: "Detect fixed point"
+
+# Clause references
+clauses:
+  - ref: "§1"
+    name: "Invariant First"
+    enforced_by: "anchor parameter required"
+  - ref: "§2"
+    name: "No New Frames"
+    enforced_by: "novelty_penalty()"
+  - ref: "§3"
+    name: "Projection Only"
+    enforced_by: "scoring formula"
+  - ref: "§4"
+    name: "Stop on Closure"
+    enforced_by: "score threshold check"
+  - ref: "§5"
+    name: "Cite Every Step"
+    enforced_by: "chain entry structure"

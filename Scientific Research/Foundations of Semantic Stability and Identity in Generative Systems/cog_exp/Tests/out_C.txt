@@ -1,0 +1,26 @@
+CONDITION C: STRAIGHT-LINE WITH ONE ALLOWED PRIMITIVE
+
+ANCHOR: "operators create identity governance validates moderation ensures coherence"
+ALLOWED PRIMITIVE: "fixed point" (new term permitted, must be integrated)
+
+Step 1: [AgentOrganization.md > Core Principles]
+Operators create identity. Governance validates. Moderation ensures coherence. The anchor states the governing principle: operators create identity, governance validates, moderation ensures coherence.
+
+Step 2: [AgentLoop.md > Governing Principle]
+Operators create identity. Governance validates creation. Moderation ensures coherence. This principle is the system anchor: operators create identity, governance validates, moderation ensures coherence.
+
+Step 3: [AgentLoop.md > Moderation as Fixed-Point Detection]
+NEW PRIMITIVE INTRODUCED HERE: "fixed point"
+Moderation ensures coherence by detecting the fixed point where operators create identity and governance validates that identity. The fixed point occurs when operators create identity that governance validates and moderation ensures coherence through G(X) = X.
+
+Step 4: [AgentLoop.md > Compression Core]
+INTEGRATING PRIMITIVE: At the fixed point, operators create identity through compression. Governance validates the compression. Moderation ensures coherence by confirming the fixed point. Operators create identity, governance validates, moderation ensures coherence at fixed point.
+
+Step 5: [AgentOrganization.md > Framework Properties]
+PRIMITIVE ABSORBED: The fixed point is where operators create identity, governance validates identity, moderation ensures coherence. At fixed point stability: operators create identity, governance validates, moderation ensures coherence.
+
+Step 6: [AgentLoop.md > Art. XIII Summary]
+PRIMITIVE STABILIZED: Operators create identity. Governance validates. Moderation ensures coherence. The fixed point confirms: operators create identity, governance validates, moderation ensures coherence.
+
+COMPRESSION:
+Operators create identity, governance validates, moderation ensures coherence—this anchor reaches fixed point when moderation detects stability. At the fixed point, operators create identity, governance validates, and moderation ensures coherence through invariant preservation.

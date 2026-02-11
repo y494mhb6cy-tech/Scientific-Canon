@@ -1,0 +1,36 @@
+{
+  "anchor": "operators create identity governance validates moderation ensures coherence",
+  "metrics_A": {
+    "chars_out": 3452,
+    "words_out": 462,
+    "anchor_preservation": 0,
+    "citations_count": 12,
+    "step_count": 6,
+    "novelty_rate": 0.9735,
+    "ambiguity_rate": 0.8658,
+    "frame_switches": 3,
+    "unique_tokens": 226,
+    "anchor_tokens_used": 6
+  },
+  "metrics_B": {
+    "chars_out": 2539,
+    "words_out": 295,
+    "anchor_preservation": 1,
+    "citations_count": 12,
+    "step_count": 6,
+    "novelty_rate": 0.9101,
+    "ambiguity_rate": 0.0,
+    "frame_switches": 0,
+    "unique_tokens": 89,
+    "anchor_tokens_used": 8
+  },
+  "timing": {
+    "time_A": 0,
+    "time_B": 0,
+    "note": "Generated directly, no CLI timing"
+  },
+  "scores": {
+    "A": 0,
+    "B": 8
+  }
+}

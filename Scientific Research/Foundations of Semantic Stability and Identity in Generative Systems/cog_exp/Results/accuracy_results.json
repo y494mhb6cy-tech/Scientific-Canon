@@ -1,0 +1,133 @@
+{
+  "anchor": "operators create identity governance validates moderation ensures coherence",
+  "accuracy_A": {
+    "citations_total": 6,
+    "citation_validity": 1.0,
+    "heading_validity": 0.833,
+    "avg_source_relevance": 0.5,
+    "claims_total": 6,
+    "grounding_rate": 0.0,
+    "avg_fabrication_risk": 0.926,
+    "hallucination_markers": 0,
+    "anchor_verbatim_in_compression": false,
+    "anchor_token_coverage": 0.625,
+    "citation_details": [
+      {
+        "citation": "[AgentOrganization.md > Core Principles]",
+        "file_exists": true,
+        "heading_exists": true,
+        "content": "> **Operators create identity.**\n> **Governance decides if it was worth creating.**\n> **Moderation ensures it remains coherent.**",
+        "anchor_terms_in_source": 6,
+        "relevance_score": 0.75
+      },
+      {
+        "citation": "[AgentLoop.md > Core Loop Structure]",
+        "file_exists": true,
+        "heading_exists": true,
+        "content": "```\nMISSION \u2192 GOVERNANCE \u2192 EXECUTION \u2192 MODERATION \u2192 DELIVERABLE \u2192 REVIEW\n    \u2191                                                              \u2502\n    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n**Governing Principle:** Operators create identity. Governance validates creation. Moderation ensures coherence.\n\n---",
+        "anchor_terms_in_source": 8,
+        "relevance_score": 1.0
+      },
+      {
+        "citation": "[AgentOrganization.md > Operator Summary]",
+        "file_exists": true,
+        "heading_exists": true,
+        "content": "| #  | Operator        | Class         | Function                  |\n|----|-----------------|---------------|---------------------------|\n| 1  | **Field**       | Context       | Establishes state space   |\n| 2  | **Distinction** | Filter        | Defines boundaries        |\n| 3  | **Direction**   | Flow          | Routes energy/data        |\n| 4  | **Constraint**  | Control       | Imposes limits            |\n| 5  | **Action**      | Execution     | Irreversible state change |\n| 6  | **Pattern*",
+        "anchor_terms_in_source": 1,
+        "relevance_score": 0.125
+      },
+      {
+        "citation": "[AgentLoop.md > Moderation as Fixed-Point Detection]",
+        "file_exists": true,
+        "heading_exists": true,
+        "content": "```\nMODERATION BUS (parallel execution)\n         \u2502\n    \u250c\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2510\n    \u2193    \u2193    \u2193\n   R\u2088   R\u2089   R\u2081\u2080\n\nR\u2088  RECURSION:     Lock X when G(X) = X\nR\u2089  INTERPRETATION: Weight elements by |G(x) - x|\nR\u2081\u2080 OBSERVATION:    Track ||X\u2099 - X\u2099\u208b\u2081|| \u2192 0\n```\n\n| Moderator | Function | Stop Signal |\n|-----------|----------|-------------|\n| Recursion | Anchor stable refs | Ref is self-referential |\n| Interpretation | Measure compression | Weight delta = 0 |\n| Observation | Monitor convergence | Trajectory flat |\n\n---",
+        "anchor_terms_in_source": 1,
+        "relevance_score": 0.125
+      },
+      {
+        "citation": "[AgentOrganization.md > Governance \u2194 Execution Mapping]",
+        "file_exists": true,
+        "heading_exists": true,
+        "content": "| Governance          | Maps To        | Effect                    |\n|---------------------|----------------|---------------------------|\n| Mission Alignment   | Field (1)      | Validates possibility space|\n| Prioritization      | Distinction (2)| Sets scope and order      |\n| Resource Allocation | Constraint (4) | Bounds capacity           |\n| Success Criteria    | Identity (7)   | Defines persistence test  |\n| Portfolio Synthesis | Pattern (6)    | Evaluates compounding     |\n\n> **Governance ",
+        "anchor_terms_in_source": 4,
+        "relevance_score": 0.5
+      },
+      {
+        "citation": "[AgentLoop.md > Constitutional Amendments]",
+        "file_exists": true,
+        "heading_exists": false,
+        "content": null,
+        "anchor_terms_in_source": 0,
+        "relevance_score": 0.0
+      }
+    ],
+    "hallucination_details": []
+  },
+  "accuracy_B": {
+    "citations_total": 6,
+    "citation_validity": 1.0,
+    "heading_validity": 0.667,
+    "avg_source_relevance": 0.594,
+    "claims_total": 6,
+    "grounding_rate": 0.833,
+    "avg_fabrication_risk": 0.411,
+    "hallucination_markers": 0,
+    "anchor_verbatim_in_compression": true,
+    "anchor_token_coverage": 1.0,
+    "citation_details": [
+      {
+        "citation": "[AgentOrganization.md > Core Principles]",
+        "file_exists": true,
+        "heading_exists": true,
+        "content": "> **Operators create identity.**\n> **Governance decides if it was worth creating.**\n> **Moderation ensures it remains coherent.**",
+        "anchor_terms_in_source": 6,
+        "relevance_score": 0.75
+      },
+      {
+        "citation": "[AgentLoop.md > Governing Principle]",
+        "file_exists": true,
+        "heading_exists": false,
+        "content": null,
+        "anchor_terms_in_source": 0,
+        "relevance_score": 0.0
+      },
+      {
+        "citation": "[AgentOrganization.md > Quick Reference Summary]",
+        "file_exists": true,
+        "heading_exists": true,
+        "content": "| Layer          | Agents        | Function       |\n|----------------|---------------|----------------|\n| **Mission**    | Organization  | Purpose        |\n| **Governance** | Division      | Selection      |\n| **Execution**  | Operators 1-7 | Transformation |\n| **Moderation** | Agents 8-10   | Stability      |\n\n**One Sentence:**\n\n> Governance selects a Field; Operators collapse it into Identity; Moderators ensure coherence; Governance validates against Mission.\n\n---",
+        "anchor_terms_in_source": 6,
+        "relevance_score": 0.75
+      },
+      {
+        "citation": "[AgentLoop.md > Constitutional Clauses > Foundational Principles]",
+        "file_exists": true,
+        "heading_exists": false,
+        "content": null,
+        "anchor_terms_in_source": 0,
+        "relevance_score": 0.0
+      },
+      {
+        "citation": "[AgentOrganization.md > Framework Properties]",
+        "file_exists": true,
+        "heading_exists": true,
+        "content": "| Property             | Execution Layer            | Moderator Layer                |\n|----------------------|----------------------------|--------------------------------|\n| **Mode**             | Sequential                 | Parallel/Supervisory           |\n| **Function**         | Transform Field \u2192 Identity | Ensure transformation is sound |\n| **Failure Response** | Halt and report            | Intervene and correct          |\n| **Output**           | Structured solution        | Verificatio",
+        "anchor_terms_in_source": 4,
+        "relevance_score": 0.5
+      },
+      {
+        "citation": "[AgentLoop.md > Summary Clause (Art. XIII)]",
+        "file_exists": true,
+        "heading_exists": true,
+        "content": "1. Governance selects Field\n2. Branches collapse Field through Limbs into Anchors\n3. Moderators stabilize Anchors\n4. Identity emerges from stable Anchors\n5. Governance validates Identity against Mission\n\n---\n\n*Synthesized from Agent Division Operator System v1.0.0 + Constitutional Clauses v2.0.0*\n\n---",
+        "anchor_terms_in_source": 3,
+        "relevance_score": 0.375
+      }
+    ],
+    "hallucination_details": []
+  },
+  "scores": {
+    "A": 1,
+    "B": 5
+  }
+}

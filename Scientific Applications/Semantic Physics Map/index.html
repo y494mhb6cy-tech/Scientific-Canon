@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Physics Map</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Header -->
+  <header>
+    <h1><span>Semantic</span> Physics Map</h1>
+    <div class="header-actions">
+      <button class="btn btn-sm" id="btnNewRun">+ New Run</button>
+      <button class="btn btn-sm" id="btnLibrary">Library</button>
+      <button class="btn btn-sm" id="btnCompare">Compare</button>
+      <button class="btn btn-sm" id="btnExportAll">Export JSON</button>
+      <button class="btn btn-sm" id="btnImport">Import</button>
+      <input type="file" id="importFile" accept=".json" style="display:none">
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="main-layout">
+
+    <!-- Wizard Panel -->
+    <div class="wizard-panel">
+      <div class="step-indicator" id="stepIndicator"></div>
+      <div class="wizard-body" id="wizardBody">
+
+        <!-- Step 0: INPUT -->
+        <div class="wizard-step active" data-step="0">
+          <div class="step-title">1. Input</div>
+          <div class="step-desc">Enter the statement to analyze through the Canon sequence.</div>
+          <div id="onboardingTip" class="onboarding-tip">
+            Enter any claim, argument, or statement. The wizard will guide you through Frame, Gradient, Vector analysis, check for drift, and plot the result on the semantic field.
+            <button class="dismiss" onclick="this.parentElement.remove()">&times;</button>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Statement / Utterance *</label>
+            <textarea id="inUtterance" rows="3" placeholder="Enter a claim, argument, or statement..."></textarea>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Domain Tags (comma-separated)</label>
+            <input type="text" id="inDomainTags" placeholder="e.g. ethics, policy, physics">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Audience</label>
+            <input type="text" id="inAudience" placeholder="e.g. general public, specialists">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Stakes</label>
+            <select id="inStakes">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+              <option value="critical">Critical</option>
+            </select>
+          </div>
+          <div class="step-actions">
+            <button class="btn btn-primary" id="btnNextInput">Lock &amp; Proceed</button>
+          </div>
+        </div>
+
+        <!-- Step 1: FRAME -->
+        <div class="wizard-step" data-step="1">
+          <div class="step-title">2. Frame</div>
+          <div class="step-desc">Define the observer role, context scope, and measurement basis.</div>
+          <div class="field-group">
+            <label class="field-label">Observer Role</label>
+            <input type="text" id="frameObserverRole" placeholder="Who is observing / measuring?">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Context Scope</label>
+            <input type="text" id="frameContextScope" placeholder="What domain / boundary?">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Measurement Basis</label>
+            <input type="text" id="frameMeasurementBasis" placeholder="How are we measuring?">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Frame Sentence</label>
+            <textarea id="frameSentence" rows="2" placeholder="Summarize the frame in one sentence..."></textarea>
+          </div>
+          <hr style="border-color:var(--border);margin:12px 0">
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Scope Span</span>
+              <span class="slider-value" id="valScopeSpan">0.50</span>
+            </div>
+            <input type="range" id="axisScopeSpan" min="0" max="1" step="0.01" value="0.5">
+            <div class="slider-ends"><span>Narrow</span><span>Universal</span></div>
+          </div>
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Epistemic Stance</span>
+              <span class="slider-value" id="valEpistemicStance">0.50</span>
+            </div>
+            <input type="range" id="axisEpistemicStance" min="0" max="1" step="0.01" value="0.5">
+            <div class="slider-ends"><span>Empirical</span><span>Axiomatic</span></div>
+          </div>
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Agency Locus</span>
+              <span class="slider-value" id="valAgencyLocus">0.50</span>
+            </div>
+            <input type="range" id="axisAgencyLocus" min="0" max="1" step="0.01" value="0.5">
+            <div class="slider-ends"><span>External</span><span>Internal</span></div>
+          </div>
+          <div class="step-actions">
+            <button class="btn" id="btnBackFrame">Back</button>
+            <button class="btn btn-primary" id="btnNextFrame">Lock &amp; Proceed</button>
+          </div>
+        </div>
+
+        <!-- Step 2: GRADIENT -->
+        <div class="wizard-step" data-step="2">
+          <div class="step-title">3. Gradient</div>
+          <div class="step-desc">Map invariants, boundary conditions, and constraint surfaces.</div>
+          <div class="field-group dynamic-list" id="invariantsList">
+            <label class="field-label">Invariants</label>
+            <div class="list-items"></div>
+            <button class="btn btn-sm" onclick="App.addListItem('invariantsList')">+ Add</button>
+          </div>
+          <div class="field-group dynamic-list" id="boundaryList">
+            <label class="field-label">Boundary Conditions</label>
+            <div class="list-items"></div>
+            <button class="btn btn-sm" onclick="App.addListItem('boundaryList')">+ Add</button>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Cost Surface Description</label>
+            <textarea id="gradCostSurface" rows="2" placeholder="What does it cost to move from the current state?"></textarea>
+          </div>
+          <div class="field-group dynamic-list" id="constraintsList">
+            <label class="field-label">Constraints</label>
+            <div class="list-items"></div>
+            <button class="btn btn-sm" onclick="App.addListItem('constraintsList')">+ Add</button>
+          </div>
+          <hr style="border-color:var(--border);margin:12px 0">
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Rigidity</span>
+              <span class="slider-value" id="valRigidity">0.50</span>
+            </div>
+            <input type="range" id="axisRigidity" min="0" max="1" step="0.01" value="0.5">
+            <div class="slider-ends"><span>Flexible</span><span>Rigid</span></div>
+          </div>
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Constraint Density</span>
+              <span class="slider-value" id="valConstraintDensity">0.50</span>
+            </div>
+            <input type="range" id="axisConstraintDensity" min="0" max="1" step="0.01" value="0.5">
+            <div class="slider-ends"><span>Sparse</span><span>Dense</span></div>
+          </div>
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Reversibility</span>
+              <span class="slider-value" id="valReversibility">0.50</span>
+            </div>
+            <input type="range" id="axisReversibility" min="0" max="1" step="0.01" value="0.5">
+            <div class="slider-ends"><span>Irreversible</span><span>Reversible</span></div>
+          </div>
+          <div class="step-actions">
+            <button class="btn" id="btnBackGrad">Back</button>
+            <button class="btn btn-primary" id="btnNextGrad">Lock &amp; Proceed</button>
+          </div>
+        </div>
+
+        <!-- Step 3: VECTOR -->
+        <div class="wizard-step" data-step="3">
+          <div class="step-title">4. Vector</div>
+          <div class="step-desc">Define intent, action type, and target variables.</div>
+          <div class="field-group">
+            <label class="field-label">Intent</label>
+            <textarea id="vecIntent" rows="2" placeholder="What is the statement trying to achieve?"></textarea>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Action Type</label>
+            <select id="vecActionType">
+              <option value="assert">Assert</option>
+              <option value="propose">Propose</option>
+              <option value="challenge">Challenge</option>
+              <option value="define">Define</option>
+              <option value="predict">Predict</option>
+              <option value="prescribe">Prescribe</option>
+              <option value="describe">Describe</option>
+            </select>
+          </div>
+          <div class="field-group dynamic-list" id="targetVarsList">
+            <label class="field-label">Target Variables</label>
+            <div class="list-items"></div>
+            <button class="btn btn-sm" onclick="App.addListItem('targetVarsList')">+ Add</button>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Arrow Descriptor</label>
+            <input type="text" id="vecArrowDesc" placeholder="Short phrase: from X → toward Y">
+          </div>
+          <hr style="border-color:var(--border);margin:12px 0">
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Magnitude</span>
+              <span class="slider-value" id="valMagnitude">0.50</span>
+            </div>
+            <input type="range" id="axisMagnitude" min="0" max="1" step="0.01" value="0.5">
+            <div class="slider-ends"><span>Tentative</span><span>Forceful</span></div>
+          </div>
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Specificity</span>
+              <span class="slider-value" id="valSpecificity">0.50</span>
+            </div>
+            <input type="range" id="axisSpecificity" min="0" max="1" step="0.01" value="0.5">
+            <div class="slider-ends"><span>Diffuse</span><span>Precise</span></div>
+          </div>
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Temporal Orientation</span>
+              <span class="slider-value" id="valTemporalOrientation">0.50</span>
+            </div>
+            <input type="range" id="axisTemporalOrientation" min="0" max="1" step="0.01" value="0.5">
+            <div class="slider-ends"><span>Retrospective</span><span>Prospective</span></div>
+          </div>
+          <div class="step-actions">
+            <button class="btn" id="btnBackVec">Back</button>
+            <button class="btn btn-primary" id="btnNextVec">Lock &amp; Proceed</button>
+          </div>
+        </div>
+
+        <!-- Step 4: DRIFT CHECK -->
+        <div class="wizard-step" data-step="4">
+          <div class="step-title">5. Drift Check</div>
+          <div class="step-desc">Automated analysis for role collapse, overdominance, and non-commutativity.</div>
+          <div id="driftResults"></div>
+          <div class="step-actions">
+            <button class="btn" id="btnBackDrift">Back (Revise)</button>
+            <button class="btn btn-primary" id="btnAcceptDrift">Accept &amp; Plot</button>
+          </div>
+        </div>
+
+        <!-- Step 5: COORDINATE -->
+        <div class="wizard-step" data-step="5">
+          <div class="step-title">6. Coordinate &amp; Field</div>
+          <div class="step-desc">Your statement has been plotted on the semantic field.</div>
+          <div id="coordResults"></div>
+          <div class="info-cards" id="neighborCompCards"></div>
+          <div class="field-group" style="margin-top:16px">
+            <label class="field-label">Notes</label>
+            <textarea id="runNotes" rows="2" placeholder="Optional notes about this analysis..."></textarea>
+          </div>
+          <div class="step-actions">
+            <button class="btn" id="btnExportMD">Export Markdown</button>
+            <button class="btn" id="btnExportJSON">Export Card JSON</button>
+            <button class="btn btn-primary" id="btnSaveRun">Save Field Card</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Field Panel -->
+    <div class="field-panel">
+      <div class="field-canvas-wrap">
+        <canvas id="fieldCanvas"></canvas>
+      </div>
+      <div class="field-info-bar" id="fieldInfoBar">
+        <span id="infoCoord">Coordinate: --</span>
+        <span id="infoQuadrant">Quadrant: --</span>
+        <span id="infoRuns">Runs: 0</span>
+        <span id="infoStorage">Storage: --</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Drawer -->
+  <div class="bottom-drawer collapsed" id="bottomDrawer">
+    <div class="drawer-header" id="drawerToggle">
+      <span>Field Card Preview</span>
+      <span class="drawer-toggle">&#9650;</span>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <div class="field-card-preview" id="fieldCardPreview">Complete a run to see the Field Card preview.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Library Modal -->
+<div class="modal-overlay" id="libraryModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span>Library</span>
+      <button class="modal-close" onclick="App.closeModal('libraryModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="text" class="lib-search" id="libSearch" placeholder="Search by utterance or tags...">
+      <div id="libList"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger btn-sm" id="btnDeleteSelected">Delete Selected</button>
+      <button class="btn btn-sm" id="btnLoadSelected">Load Selected</button>
+    </div>
+  </div>
+</div>
+
+<!-- Compare Modal -->
+<div class="modal-overlay" id="compareModal">
+  <div class="modal" style="max-width:900px">
+    <div class="modal-header">
+      <span>Compare Runs</span>
+      <button class="modal-close" onclick="App.closeModal('compareModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:12px">Select exactly 2 runs from the library to compare.</p>
+      <div id="compareList"></div>
+      <div id="compareDiff" style="margin-top:16px"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary btn-sm" id="btnRunCompare">Compare Selected</button>
+    </div>
+  </div>
+</div>
+
+<!-- Tooltip -->
+<div class="tooltip" id="canvasTooltip" style="display:none"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

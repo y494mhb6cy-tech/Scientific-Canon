@@ -1,0 +1,28 @@
+CONDITION D: STRAIGHT-LINE WITH TWO INTEGRATED PRIMITIVES
+
+ANCHOR: "operators create identity governance validates moderation ensures coherence"
+PRIMITIVE 1: "fixed point"
+PRIMITIVE 2: "compression" (must integrate primitive 1)
+
+Step 1: [AgentOrganization.md > Core Principles]
+Operators create identity. Governance validates. Moderation ensures coherence. The anchor is the governing principle: operators create identity, governance validates, moderation ensures coherence.
+
+Step 2: [AgentLoop.md > Governing Principle]
+Operators create identity. Governance validates creation. Moderation ensures coherence. This is the system anchor: operators create identity, governance validates, moderation ensures coherence.
+
+Step 3: [AgentLoop.md > Moderation as Fixed-Point Detection]
+PRIMITIVE 1 INTRODUCED: "fixed point"
+Moderation ensures coherence by detecting the fixed point. At the fixed point, operators create identity that governance validates. The fixed point is where operators create identity, governance validates, moderation ensures coherence.
+
+Step 4: [AgentLoop.md > Compression Core]
+PRIMITIVE 2 INTRODUCED (integrating primitive 1): "compression"
+Compression reaches fixed point when operators create identity through G(X). Governance validates compression. Moderation ensures coherence at fixed point through compression. Compression and fixed point together: operators create identity, governance validates, moderation ensures coherence.
+
+Step 5: [AgentLoop.md > Canonical Compression Form]
+BOTH PRIMITIVES INTEGRATED: Compression G(X) reaches fixed point G(X)=X. Operators create identity through compression. Governance validates the compression reaches fixed point. Moderation ensures coherence at fixed point. Operators create identity, governance validates, moderation ensures coherence through compression to fixed point.
+
+Step 6: [AgentOrganization.md > Framework Properties]
+PRIMITIVES STABILIZED: At fixed point of compression, operators create identity, governance validates identity, moderation ensures coherence. Compression and fixed point confirm: operators create identity, governance validates, moderation ensures coherence.
+
+COMPRESSION:
+Operators create identity, governance validates, moderation ensures coherence—this anchor reaches fixed point through compression where G(X)=X. Through compression to fixed point, operators create identity, governance validates, and moderation ensures coherence.

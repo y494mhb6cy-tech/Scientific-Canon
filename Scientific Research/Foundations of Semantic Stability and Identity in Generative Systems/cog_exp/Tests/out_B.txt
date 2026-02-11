@@ -1,0 +1,24 @@
+CONDITION B: STRAIGHT-LINE TRAVERSAL (Invariant-Preserving)
+
+ANCHOR: "operators create identity governance validates moderation ensures coherence"
+
+Step 1: [AgentOrganization.md > Core Principles]
+Operators create identity. Governance validates creation. Moderation ensures coherence. These three statements from the repo directly express the anchor: operators create identity, governance validates, moderation ensures coherence.
+
+Step 2: [AgentLoop.md > Governing Principle]
+The governing principle states: "Operators create identity. Governance validates creation. Moderation ensures coherence." This is the anchor restated verbatim in the source material, confirming operators create identity, governance validates, moderation ensures coherence.
+
+Step 3: [AgentOrganization.md > Quick Reference Summary]
+The summary confirms: Execution layer (Operators 1-7) performs Transformation to create identity. Governance layer performs Selection to validate. Moderation layer (Agents 8-10) performs Stability to ensure coherence. Operators create identity, governance validates, moderation ensures coherence.
+
+Step 4: [AgentLoop.md > Constitutional Clauses > Foundational Principles]
+Article I states: §1.1 Operators create identity. §1.2 Governance decides if it was worth creating. §1.3 Moderation ensures coherence. The constitutional foundation encodes that operators create identity, governance validates, moderation ensures coherence.
+
+Step 5: [AgentOrganization.md > Framework Properties]
+The framework properties table shows: Execution Layer transforms Field to Identity (operators create identity). Moderation Layer ensures transformation is sound (ensures coherence). Soundness Guarantee requires governance validation. Operators create identity, governance validates, moderation ensures coherence.
+
+Step 6: [AgentLoop.md > Summary Clause (Art. XIII)]
+The summary clause states: Branches collapse Field into Anchors (operators create identity), Moderators stabilize Anchors (ensures coherence), Governance validates Identity against Mission (validates). Operators create identity, governance validates, moderation ensures coherence.
+
+COMPRESSION:
+Operators create identity, governance validates, moderation ensures coherence—this anchor appears verbatim throughout the framework as its governing principle. Operators create identity through the seven-operator stack, governance validates that identity against mission criteria, and moderation ensures coherence by detecting fixed points where further transformation yields no change.

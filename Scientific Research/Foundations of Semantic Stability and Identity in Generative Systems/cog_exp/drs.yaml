@@ -1,0 +1,50 @@
+version: "0.1"
+mode: straight_line
+
+anchor: "operators create identity governance validates moderation ensures coherence"
+
+dimensions:
+  invariant:
+    description: "What must remain unchanged across traversal"
+    value: "operators create identity governance validates moderation ensures coherence"
+
+  transformations:
+    allowed:
+      - extract_definition
+      - paraphrase_preserving_terms
+      - derive_implication
+      - reconcile_by_anchor
+    forbidden:
+      - introduce_new_frame
+      - optimize_for_novelty
+      - lateral_association
+
+  stability:
+    description: "Prefer steps that reduce ambiguity"
+
+  closure:
+    rule: "Stop when next step introduces new primitives"
+
+  boundary:
+    rule: "Every step must cite file + heading"
+
+scoring:
+  anchor_alignment_weight: 0.65
+  novelty_penalty_weight: 0.25
+  ambiguity_penalty_weight: 0.10
+
+experiment:
+  task: "Produce a 6-step chain (file + heading) supporting the anchor, then 2-sentence compression"
+  conditions:
+    A: "curved - normal helpful reasoning with paraphrase allowed"
+    B: "straight_line - invariant-preserving, no new frames"
+
+  measurements:
+    - chars_out
+    - words_out
+    - anchor_preservation
+    - citations_count
+    - novelty_rate
+    - ambiguity_rate
+    - frame_switches
+    - step_count

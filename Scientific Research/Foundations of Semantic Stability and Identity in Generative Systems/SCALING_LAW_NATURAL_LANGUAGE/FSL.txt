@@ -1,0 +1,146 @@
+# The Semantic Cost Scaling Law
+
+## A Natural Language Script
+
+-----
+
+### The Core Claim
+
+When a reasoning system introduces new concepts, the cost of that introduction depends entirely on how those concepts relate to what came before.
+
+If you explore without constraint, cost compounds and coherence collapses. If you introduce concepts independently, cost simply adds up with no benefit. But if you integrate new concepts into existing structure while preserving identity, cost becomes shared—and growth becomes sustainable.
+
+This is the only path that scales.
+
+-----
+
+### Three Regimes of Growth
+
+**The Curved Regime: Unbounded Exploration**
+
+A system operating in the curved regime treats every new idea as permission to branch. Each concept introduces its own vocabulary. Each vocabulary creates its own frame. The frames multiply. They compete. They contradict.
+
+Cost grows faster than the sum of its parts. Coherence trends toward zero. The system hallucinates—not because it lacks information, but because it has abandoned the discipline of integration. What looks like creativity is actually drift. What feels like expansion is actually fragmentation.
+
+This regime is explosive, then catastrophic. It cannot sustain itself.
+
+**The Straight-Line Regime: Pure Stability**
+
+A system operating in the straight-line regime refuses novelty entirely. It compresses to a fixed point and holds. Cost remains stable. Coherence remains perfect.
+
+But nothing grows. The system preserves itself at the expense of adaptation. It becomes brittle—correct within its frame, useless outside it.
+
+This regime survives, but it cannot learn.
+
+**The Integrated Regime: Expansion Under Identity**
+
+A system operating in the integrated regime introduces new concepts, but with a constraint: each new primitive must build on what exists. It must use the vocabulary already established. It must serve the identity already claimed.
+
+When this constraint holds, something remarkable happens. Cost becomes subadditive—the whole costs less than the sum of its parts. The new concept borrows from the old. The semantic space extends rather than fractures. Coherence drops locally during introduction, then recovers globally as integration completes.
+
+This is the only regime that can both grow and sustain.
+
+-----
+
+### Why Integration Creates Efficiency
+
+When a second concept builds on a first, four things happen:
+
+First, vocabulary is shared. The new concept reuses existing terms rather than inventing parallel ones. Novelty is measured against an expanded basis, not a blank slate.
+
+Second, the semantic space extends rather than branches. There is one frame growing richer, not two frames competing for dominance.
+
+Third, coherence is preserved. Both concepts serve the same identity. They pull in the same direction.
+
+Fourth, recovery accelerates. Because the concepts must work together, the system stabilizes faster than it would if they remained independent.
+
+Without integration, the opposite occurs. Each concept brings independent vocabulary. The semantic space fractures. Coherence degrades. Drift compounds without limit.
+
+-----
+
+### The Pattern of Introduction
+
+When you introduce a new primitive into a stable system, efficiency drops. This is unavoidable. The system must accommodate something novel—this costs energy.
+
+But if that primitive integrates with what exists, efficiency recovers. The drop is local; the recovery is global. The system stabilizes at a new level that includes the primitive as part of its foundation.
+
+If you introduce a second primitive that builds on the first, the same pattern holds: local drop, global recovery. But now the cost of the second is reduced by its dependence on the first. The integration creates savings.
+
+Independent primitives show no such savings. Their costs simply add. Unconstrained primitives show the opposite: their costs multiply.
+
+-----
+
+### What This Explains
+
+This law explains why humans develop notation slowly. Integration has a cost. You cannot introduce new symbols faster than you can teach them to work with existing ones.
+
+It explains why scientific revolutions require consolidation. After a paradigm shift, the field must integrate the new framework before expanding further. The recovery phase is not optional.
+
+It explains why expertise is deep before it is broad. Masters integrate thoroughly at each level before adding the next. Novices who skip integration become confused.
+
+It explains why committees produce incoherence. Without a shared anchor, each participant introduces independent vocabulary. The costs compound. The output fragments.
+
+-----
+
+### Applications to Artificial Intelligence
+
+Hallucination is superadditive cost made visible. The model explores without integrating. Each generation introduces novelty that branches from the last. Coherence collapses. The output becomes untethered from any stable meaning.
+
+The solution is not to forbid novelty. It is to require integration. Every new concept must connect to existing structure. Every expansion must preserve identity.
+
+Retrieval systems fragment when they treat each retrieval as independent. The solution is to chain retrievals through a shared anchor—to force integration across the retrieved pieces.
+
+Context collapse happens when the system has no invariant to preserve. The solution is to establish identity and maintain it across every expansion.
+
+Creative drift occurs when systems optimize for novelty without penalizing incoherence. The solution is to reward integrated novelty and penalize branching.
+
+-----
+
+### The Growth Controller
+
+A system that implements this law can answer four questions:
+
+When can we introduce a new concept? Only when current vocabulary has stabilized. Only after recovery from the last introduction is complete.
+
+What will it cost? If the concept integrates with existing structure, less than expected. If it remains independent, exactly what expected. If it branches without constraint, more than expected and growing.
+
+Will it destabilize us? Yes, temporarily. Every introduction causes a local efficiency drop. But if integration succeeds, stability returns at a higher level.
+
+Have we integrated it yet? Integration is measurable. When the new primitive appears alongside existing primitives in natural combination, integration has occurred. When it appears only in isolation, it remains unintegrated.
+
+-----
+
+### The Thesis
+
+Intelligence is not exploration.
+
+Exploration alone produces drift. It fragments meaning. It hallucinates. It collapses under its own novelty.
+
+Intelligence is expansion under identity-preserving integration.
+
+Stability alone produces stagnation. It refuses growth. It becomes brittle. It fails when conditions change.
+
+Intelligence requires both: the willingness to expand and the discipline to integrate.
+
+Expansion without integration is hallucination.
+Stability without expansion is stagnation.
+Expansion with integration is knowledge.
+
+-----
+
+### The Universal Constraint
+
+This is not a recommendation. It is a constraint.
+
+Any reasoning system—biological, artificial, collective—operates under this law. The choice is not whether to obey it but which regime to occupy.
+
+Curved regimes feel productive until they collapse.
+Straight-line regimes feel safe until they’re obsolete.
+Integrated regimes feel slow until they compound.
+
+The only path that scales is the one that integrates.
+
+-----
+
+*Derived empirically. Stated universally.*
+*The cost of meaning has structure. That structure determines what can grow.*

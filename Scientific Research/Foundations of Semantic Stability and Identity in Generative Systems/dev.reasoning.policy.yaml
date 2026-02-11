@@ -1,0 +1,295 @@
+# dev.reasoning.policy.yaml
+# Drop-in reasoning policy for any repository
+# Enforces invariant-preserving traversal over semantic wandering
+#
+# Usage:
+#   1. Copy this file to your repo root
+#   2. Set your anchor in the 'anchor' field
+#   3. Run: python dev.reasoning.py --policy dev.reasoning.policy.yaml
+#
+# Or reference in prompts:
+#   "Follow the reasoning policy in dev.reasoning.policy.yaml"
+
+version: "1.0"
+name: "Dimensional Reference Script Policy"
+
+# ============================================================================
+# ANCHOR: The invariant that must be preserved across all reasoning
+# ============================================================================
+anchor:
+  text: ""  # SET YOUR INVARIANT HERE
+  description: "The statement that must remain unchanged through traversal"
+  enforcement: strict  # strict | soft
+
+# ============================================================================
+# MODE: Reasoning traversal mode
+# ============================================================================
+mode:
+  default: straight_line
+  options:
+    straight_line:
+      description: "Invariant-preserving, convergent reasoning"
+      energy_profile: low
+    curved:
+      description: "Exploratory, divergent reasoning"
+      energy_profile: high
+
+# ============================================================================
+# CLAUSES: Hard behavioral constraints
+# ============================================================================
+clauses:
+  §1_invariant_first:
+    rule: "Always restate the anchor before reasoning"
+    enforcement: required
+    check: "Output must begin with anchor or reference to anchor"
+
+  §2_no_new_frames:
+    rule: "Do not introduce new primitives unless explicitly allowed"
+    enforcement: required
+    check: "novelty_rate < novelty_threshold"
+
+  §3_projection_only:
+    rule: "Each step must increase anchor alignment or reduce ambiguity"
+    enforcement: required
+    check: "score(step_n) >= score(step_n-1) - tolerance"
+
+  §4_stop_on_closure:
+    rule: "Stop when next step would not improve invariance"
+    enforcement: required
+    check: "score < score_threshold implies STOP"
+
+  §5_cite_every_step:
+    rule: "Every step must cite a source (file + location)"
+    enforcement: required
+    check: "Each step contains citation pattern"
+
+# ============================================================================
+# TRANSFORMATIONS: Allowed and forbidden operations
+# ============================================================================
+transformations:
+  allowed:
+    - extract_definition      # Pull definition from source
+    - paraphrase_preserving   # Restate using anchor terms only
+    - derive_implication      # Logical consequence within frame
+    - reconcile_by_anchor     # Resolve conflict via anchor alignment
+    - compress                # Reduce while preserving anchor
+    - cite                    # Reference source material
+
+  forbidden:
+    - introduce_new_frame     # Creates semantic drift
+    - optimize_for_novelty    # Rewards divergence
+    - lateral_association     # Escapes anchor gravity
+    - extend_vocabulary       # Expands beyond anchor terms
+    - hedge                   # Introduces uncertainty
+    - reframe                 # Changes reference frame
+
+# ============================================================================
+# SCORING: Weights for traversal decisions
+# ============================================================================
+scoring:
+  anchor_alignment_weight: 0.65
+  novelty_penalty_weight: 0.25
+  ambiguity_penalty_weight: 0.10
+
+  thresholds:
+    score_minimum: 0.02        # Below this = closure reached
+    novelty_maximum: 0.80      # Above this = reject step
+    ambiguity_maximum: 0.50    # Above this = reject step
+
+# ============================================================================
+# VOCABULARY CONTROL
+# ============================================================================
+vocabulary:
+  # Words that signal ambiguity/hedging (penalized)
+  hedge_words:
+    - maybe
+    - might
+    - could
+    - depends
+    - unclear
+    - uncertain
+    - perhaps
+    - arguably
+    - possibly
+    - probably
+    - sometimes
+    - often
+
+  # Words that signal frame switching (forbidden in straight_line)
+  frame_switch_markers:
+    - however
+    - on the other hand
+    - alternatively
+    - another perspective
+    - conversely
+    - in contrast
+    - that said
+    - then again
+    - another way to look at it
+    - from a different angle
+
+  # Common stopwords (excluded from analysis)
+  stopwords:
+    - a
+    - an
+    - and
+    - are
+    - as
+    - at
+    - be
+    - but
+    - by
+    - for
+    - if
+    - in
+    - into
+    - is
+    - it
+    - its
+    - of
+    - on
+    - or
+    - that
+    - the
+    - their
+    - then
+    - there
+    - these
+    - this
+    - to
+    - was
+    - were
+    - will
+    - with
+
+# ============================================================================
+# OUTPUT REQUIREMENTS
+# ============================================================================
+output:
+  chain:
+    min_steps: 1
+    max_steps: 10
+    default_steps: 6
+
+  citation_format: "[file.ext > Section/Heading]"
+
+  compression:
+    required: true
+    max_sentences: 2
+    must_contain_anchor: true  # In straight_line mode
+
+  metrics_to_report:
+    - chars_out
+    - words_out
+    - anchor_preservation
+    - citations_count
+    - novelty_rate
+    - ambiguity_rate
+    - frame_switches
+    - step_count
+
+# ============================================================================
+# ENERGY MODEL
+# ============================================================================
+energy:
+  description: "Proxy for computational/cognitive cost"
+  formula: "chars + (novelty_rate × 1000) + (frame_switches × 100) + (ambiguity_rate × 500)"
+
+  interpretation:
+    low: "Efficient, convergent, invariant-preserving"
+    high: "Expensive, divergent, exploratory"
+
+# ============================================================================
+# SCALING LAW (empirically derived)
+# ============================================================================
+scaling_law:
+  statement: |
+    Semantic cost scales superadditively under unconstrained exploration,
+    additively under independent primitives, and subadditively under
+    integrated primitives with identity preservation.
+
+  regimes:
+    superadditive:
+      condition: "unbounded exploration (curved)"
+      cost_behavior: "C(P₁ ∪ P₂) > C(P₁) + C(P₂)"
+      outcome: "runaway drift, coherence collapse"
+      sustainable: false
+
+    additive:
+      condition: "independent primitives (no integration)"
+      cost_behavior: "C(P₁ ∪ P₂) = C(P₁) + C(P₂)"
+      outcome: "linear cost, no synergy"
+      sustainable: false
+
+    subadditive:
+      condition: "integrated primitives (P₂ builds on P₁)"
+      cost_behavior: "C(P₁ ∪ P₂) < C(P₁) + C(P₂)"
+      outcome: "shared semantic basis, bounded growth"
+      sustainable: true
+
+  primitive_introduction:
+    max_primitives_per_traversal: 2
+    integration_required: true
+    integration_rule: "P₂ must reuse vocabulary from anchor ∪ P₁"
+    recovery_check: "efficiency must recover after introduction"
+
+  measurements:
+    drop_tolerance: 0.35      # Max 35% efficiency drop at introduction
+    recovery_threshold: 0.50  # Must recover 50% of drop
+    integration_rate_min: 0.80 # 80%+ of post-intro steps must integrate
+
+  thesis: |
+    Intelligence is not exploration.
+    Intelligence is expansion under identity-preserving integration.
+
+# ============================================================================
+# PROMPT TEMPLATES
+# ============================================================================
+prompts:
+  straight_line: |
+    ANCHOR: "{anchor}"
+
+    RULES (Dimensional Reference Script):
+    1. INVARIANT FIRST: Begin by restating the anchor exactly.
+    2. NO NEW PRIMITIVES: Use only terms from the anchor vocabulary.
+    3. NO NEW FRAMES: Do not introduce alternative perspectives.
+    4. CITE EVERY STEP: Each step must cite [file > heading].
+    5. PREFER ANCHOR TERMS: Select content that reuses anchor words.
+    6. STOP ON CLOSURE: If next step requires new terms, stop.
+    7. COMPRESS: End with 2 sentences containing anchor verbatim.
+
+    Forbidden: however, alternatively, might, maybe, could, perhaps
+
+    FORMAT:
+    ANCHOR: "{anchor}"
+    Step 1: [source] - statement using anchor terms
+    ...
+    COMPRESSION: [2 sentences with anchor verbatim]
+
+  curved: |
+    CONCEPT: "{anchor}"
+
+    Explore this concept freely:
+    - You may paraphrase and reframe
+    - Make insightful connections
+    - Introduce related ideas
+    - Be creative
+
+    FORMAT:
+    Step 1: [source] - your insight
+    ...
+    SUMMARY: [your synthesis]
+
+# ============================================================================
+# VALIDATION
+# ============================================================================
+validation:
+  pre_check:
+    - anchor_is_set
+    - mode_is_valid
+
+  post_check:
+    - all_steps_have_citations
+    - compression_exists
+    - anchor_preserved_if_required
+    - no_forbidden_transforms_if_strict

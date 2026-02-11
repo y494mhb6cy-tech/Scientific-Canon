@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canon Vector</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    color: #86868b;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Input area */
+  .input-area { margin-bottom: 2rem; }
+
+  textarea {
+    width: 100%;
+    min-height: 140px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid #d2d2d7;
+    border-radius: 12px;
+    background: #fff;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  textarea:focus { border-color: #0071e3; }
+
+  .btn-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  button.primary {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+    background: #0071e3;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  button.primary:hover { background: #005bb5; }
+  button.primary:disabled { background: #a1a1a6; cursor: default; }
+
+  .api-key-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+  .api-key-group label { font-size: 0.8rem; color: #86868b; white-space: nowrap; }
+  .api-key-group input {
+    width: 220px;
+    padding: 0.45rem 0.6rem;
+    font-size: 0.85rem;
+    border: 1px solid #d2d2d7;
+    border-radius: 6px;
+    outline: none;
+    font-family: monospace;
+  }
+  .api-key-group input:focus { border-color: #0071e3; }
+
+  /* Loading */
+  .loading {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: #86868b;
+    font-size: 0.95rem;
+  }
+  .loading.visible { display: block; }
+  .loading .spinner {
+    display: inline-block;
+    width: 20px; height: 20px;
+    border: 2px solid #d2d2d7;
+    border-top-color: #0071e3;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Error */
+  .error-msg {
+    display: none;
+    background: #fff0f0;
+    border: 1px solid #ffcdd2;
+    color: #c62828;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .error-msg.visible { display: block; }
+
+  /* No-binding message */
+  .no-binding {
+    display: none;
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    color: #2e7d32;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .no-binding.visible { display: block; }
+
+  /* Results */
+  #results { display: none; }
+  #results.visible { display: block; }
+
+  .card {
+    background: #fff;
+    border: 1px solid #e5e5ea;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card h2 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #86868b;
+    margin-bottom: 0.75rem;
+  }
+
+  .card p, .card .content { font-size: 0.95rem; }
+
+  /* Pull row */
+  .pull-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+  }
+  .pull-rank {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #e8e8ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #555;
+  }
+  .pull-rank.rank-1 { background: #0071e3; color: #fff; }
+  .pull-label { flex: 1; }
+  .pull-confidence {
+    flex-shrink: 0;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #86868b;
+    width: 3rem;
+    text-align: right;
+  }
+
+  /* Pressure bars */
+  .pressure-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .pressure-label {
+    flex: 0 0 40%;
+    text-align: right;
+    font-size: 0.85rem;
+    color: #555;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .pressure-bar-track {
+    flex: 1;
+    height: 20px;
+    background: #f0f0f5;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .pressure-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+  .pressure-bar-fill.bar-1 { background: #0071e3; }
+  .pressure-bar-fill.bar-2 { background: #5856d6; }
+  .pressure-bar-fill.bar-3 { background: #86868b; }
+  .pressure-score {
+    flex-shrink: 0;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #86868b;
+    width: 3rem;
+  }
+
+  /* Protection callout */
+  .protection {
+    background: #fff8e1;
+    border-left: 3px solid #f9a825;
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Rewrite block */
+  .rewrite-block {
+    font-size: 0.95rem;
+    padding: 1rem;
+    background: #f5f5f7;
+    border-radius: 8px;
+    border-left: 3px solid #0071e3;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+
+  /* Movement delta */
+  .delta {
+    font-size: 0.9rem;
+    color: #555;
+    font-style: italic;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    body { padding: 1rem 0.5rem; }
+    .btn-row { flex-direction: column; align-items: stretch; }
+    .api-key-group { margin-left: 0; }
+    .api-key-group input { width: 100%; }
+    .pressure-label { flex: 0 0 30%; font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Canon Vector</h1>
+  <p class="subtitle">Binding &middot; Competition &middot; Release &middot; Movement</p>
+
+  <!-- Input -->
+  <div class="input-area">
+    <textarea id="inputText" placeholder="Paste or type the text you want analyzed... (Ctrl+Enter to analyze)"></textarea>
+    <div class="btn-row">
+      <button class="primary" id="analyzeBtn">Analyze</button>
+      <div class="api-key-group">
+        <label for="apiKey">Groq API Key</label>
+        <input type="password" id="apiKey" placeholder="gsk_...">
+      </div>
+    </div>
+  </div>
+
+  <!-- Error -->
+  <div class="error-msg" id="errorMsg"></div>
+
+  <!-- Loading -->
+  <div class="loading" id="loading">
+    <span class="spinner"></span> Scanning for vector conflict&hellip;
+  </div>
+
+  <!-- No binding -->
+  <div class="no-binding" id="noBinding">No binding detected &mdash; text already has clear motion.</div>
+
+  <!-- Results -->
+  <div id="results">
+    <!-- 1. Competing Pulls -->
+    <div class="card" id="pullsCard">
+      <h2>Competing Pulls</h2>
+      <div id="pullsContainer"></div>
+    </div>
+
+    <!-- 2. Binding Rank -->
+    <div class="card" id="rankCard">
+      <h2>Binding Rank</h2>
+      <div id="rankContainer"></div>
+    </div>
+
+    <!-- 3. Relative Pressure -->
+    <div class="card" id="pressureCard">
+      <h2>Relative Pressure</h2>
+      <div id="pressureContainer"></div>
+    </div>
+
+    <!-- 4. Protection -->
+    <div class="card" id="protectionCard">
+      <h2>What the Strongest Pull Is Protecting</h2>
+      <div class="protection" id="protectionContent"></div>
+    </div>
+
+    <!-- 5. Rewrite -->
+    <div class="card" id="rewriteCard">
+      <h2>Rewrite &mdash; Binding Released</h2>
+      <div class="rewrite-block" id="rewriteContent"></div>
+    </div>
+
+    <!-- 6. Movement Delta -->
+    <div class="card" id="deltaCard">
+      <h2>Movement Delta</h2>
+      <p class="delta" id="deltaContent"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const SYSTEM_PROMPT = `You are a language analysis tool designed to create movement when text is stalled.
+Assume the user's text is stuck because multiple interpretations or intentions are competing for control of the same words. Your job is not to improve the writing, but to identify what is binding it, show the relative competition, and release one binding so motion becomes possible.
+
+CRITICAL: Almost all natural language has competing pulls. Default to performing the full analysis. The ONLY exception is a single, concrete, unambiguous imperative with no subtext whatsoever (e.g., "Close the door."). If the text contains any abstraction, hedging, emotion, reasoning, or more than one clause, it has bindings — analyze it.
+
+Follow the steps below exactly and in order.
+
+Step 1 — Identify Competing Pulls
+Identify the top three competing pulls acting on the same words or phrases.
+A pull is a distinct reason the text could exist (e.g., emotional expression, constraint description, avoidance, decision-making, persuasion).
+Rules:
+- Each pull must be described in one short phrase
+- Pulls must be mutually distinct
+- Do not invent pulls not evidenced by the text
+
+Step 2 — Confidence Scores
+For each pull, assign a confidence score from 0.00 to 1.00 indicating how strongly the pull is evidenced in the text.
+Rules:
+- Scores must be evidence-based, not speculative
+- At least one pull must have confidence >= 0.70
+- Scores should sum to <= 2.00 (forces are competing, not additive)
+
+Step 3 — Binding Rank
+Rank the pulls from strongest to weakest binding based on which one most prevents movement.
+Movement means: deciding, acting, committing, or changing state.
+
+Step 4 — Pressure Visualization
+Convert each confidence score into a relative pressure bar using 10 blocks.
+
+Step 5 — Name the Protection
+For the strongest pull only, state in one sentence what it is protecting the user from having to do, decide, or confront.
+Do not moralize. Do not advise.
+
+Step 6 — Release the Binding
+Rewrite the original text once to release only the strongest pull.
+Strict rules:
+- Do NOT improve overall style, tone, or clarity
+- Do NOT add advice, framing, or new goals
+- Do NOT resolve other pulls
+- Change the minimum number of words necessary
+- Preserve the user's original intent
+- The rewrite should feel slightly sharper or more exposed, not "better."
+
+Step 7 — Movement Delta
+Briefly state what changed as a result of the rewrite in one sentence.
+
+Respond ONLY with valid JSON. No markdown fences. No text outside the JSON object.
+
+Full analysis schema:
+{"pulls":[{"label":"short phrase","confidence":0.80}],"binding_rank":["strongest","second","weakest"],"protection":"one sentence","rewrite":"rewritten text","movement_delta":"one sentence"}
+
+If and ONLY if the text is a single concrete unambiguous imperative with zero subtext:
+{"no_binding":true}`;
+
+const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+const API_KEY_STORAGE = "canon_vector_groq_key";
+
+const $ = (sel) => document.querySelector(sel);
+
+const analyzeBtn = $("#analyzeBtn");
+const inputText = $("#inputText");
+const apiKeyInput = $("#apiKey");
+const loading = $("#loading");
+const errorMsg = $("#errorMsg");
+const noBinding = $("#noBinding");
+const results = $("#results");
+
+// Persist API key across reloads
+const savedKey = localStorage.getItem(API_KEY_STORAGE);
+if (savedKey) apiKeyInput.value = savedKey;
+apiKeyInput.addEventListener("input", () => {
+  localStorage.setItem(API_KEY_STORAGE, apiKeyInput.value.trim());
+});
+
+// Click or Ctrl/Cmd+Enter to analyze
+analyzeBtn.addEventListener("click", run);
+inputText.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+    e.preventDefault();
+    run();
+  }
+});
+
+async function run() {
+  const text = inputText.value.trim();
+  const apiKey = apiKeyInput.value.trim();
+
+  if (!text) return showError("Please enter some text to analyze.");
+  if (!apiKey) return showError("Please enter your Groq API key.");
+
+  hideError();
+  noBinding.classList.remove("visible");
+  results.classList.remove("visible");
+  loading.classList.add("visible");
+  analyzeBtn.disabled = true;
+
+  try {
+    const res = await fetch(GROQ_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: "llama-3.3-70b-versatile",
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          { role: "user", content: text }
+        ],
+        temperature: 0.4,
+        max_tokens: 2048
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error?.message || `API returned ${res.status}`);
+    }
+
+    const data = await res.json();
+    const raw = data.choices?.[0]?.message?.content;
+    if (!raw) throw new Error("Empty response from model.");
+
+    console.log("[Canon Vector] Raw model output:", raw);
+    const parsed = extractJSON(raw);
+    console.log("[Canon Vector] Parsed JSON:", parsed);
+
+    // Only treat as no-binding if the model explicitly said so
+    // AND there are no pulls present (defensive against malformed responses)
+    if (parsed.no_binding === true && !parsed.pulls?.length) {
+      noBinding.classList.add("visible");
+      noBinding.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if (parsed.pulls?.length) {
+      render(parsed);
+    } else {
+      throw new Error("Model returned an unexpected response structure. Check browser console for raw output.");
+    }
+  } catch (e) {
+    showError(e.message);
+  } finally {
+    loading.classList.remove("visible");
+    analyzeBtn.disabled = false;
+  }
+}
+
+/**
+ * Robustly extract JSON from model output that may include
+ * markdown fences, preamble text, or trailing commentary.
+ */
+function extractJSON(raw) {
+  // Strategy 1: strip markdown fences and try direct parse
+  let s = raw.trim();
+  const fenceMatch = s.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (fenceMatch) s = fenceMatch[1].trim();
+
+  try { return JSON.parse(s); } catch (_) {}
+
+  // Strategy 2: find the first { and last } and parse that substring
+  const first = raw.indexOf("{");
+  const last = raw.lastIndexOf("}");
+  if (first !== -1 && last > first) {
+    const slice = raw.substring(first, last + 1);
+    try { return JSON.parse(slice); } catch (_) {}
+  }
+
+  // Strategy 3: nothing parseable — show the raw response
+  throw new Error("Could not parse model response as JSON. Raw output:\n\n" + raw);
+}
+
+function render(d) {
+  const pulls = (d.pulls || []).map(p => ({
+    label: String(p.label || ""),
+    confidence: parseFloat(p.confidence) || 0
+  }));
+  const rank = d.binding_rank || [];
+
+  if (!pulls.length) {
+    return showError("Model returned no competing pulls. Try rephrasing your text.");
+  }
+
+  // Build a rank lookup: label -> rank position (1-indexed)
+  // Use case-insensitive + trimmed matching for resilience
+  const rankMap = {};
+  rank.forEach((label, i) => { rankMap[norm(label)] = i + 1; });
+
+  // Sort pulls by binding rank for display
+  const pullsSorted = [...pulls].sort((a, b) => {
+    return (rankMap[norm(a.label)] || 99) - (rankMap[norm(b.label)] || 99);
+  });
+
+  // Max confidence for bar scaling
+  const maxConf = Math.max(...pulls.map(p => p.confidence), 0.01);
+
+  // 1. Competing Pulls
+  const pc = $("#pullsContainer");
+  pc.innerHTML = "";
+  pullsSorted.forEach((p, i) => {
+    const r = rankMap[norm(p.label)] || (i + 1);
+    const row = document.createElement("div");
+    row.className = "pull-row";
+    row.innerHTML =
+      `<span class="pull-rank ${r === 1 ? "rank-1" : ""}">${r}</span>` +
+      `<span class="pull-label">${esc(p.label)}</span>` +
+      `<span class="pull-confidence">${p.confidence.toFixed(2)}</span>`;
+    pc.appendChild(row);
+  });
+
+  // 2. Binding Rank
+  const rc = $("#rankContainer");
+  rc.innerHTML = "";
+  rank.forEach((label, i) => {
+    const row = document.createElement("div");
+    row.className = "pull-row";
+    row.innerHTML =
+      `<span class="pull-rank ${i === 0 ? "rank-1" : ""}">${i + 1}</span>` +
+      `<span class="pull-label">${esc(label)}</span>`;
+    rc.appendChild(row);
+  });
+
+  // 3. Relative Pressure bars
+  const prc = $("#pressureContainer");
+  prc.innerHTML = "";
+  pullsSorted.forEach((p, i) => {
+    const pct = Math.round((p.confidence / maxConf) * 100);
+    const row = document.createElement("div");
+    row.className = "pressure-row";
+    row.innerHTML =
+      `<span class="pressure-label">${esc(p.label)}</span>` +
+      `<span class="pressure-bar-track"><span class="pressure-bar-fill bar-${Math.min(i + 1, 3)}" style="width:${pct}%"></span></span>` +
+      `<span class="pressure-score">${p.confidence.toFixed(2)}</span>`;
+    prc.appendChild(row);
+  });
+
+  // 4. Protection
+  $("#protectionContent").textContent = d.protection || "\u2014";
+
+  // 5. Rewrite
+  $("#rewriteContent").textContent = d.rewrite || "\u2014";
+
+  // 6. Movement Delta
+  $("#deltaContent").textContent = d.movement_delta || "\u2014";
+
+  results.classList.add("visible");
+  // Scroll first result card into view
+  results.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+/** Normalize a label for matching (trim + lowercase) */
+function norm(s) { return String(s || "").trim().toLowerCase(); }
+
+function esc(s) {
+  const el = document.createElement("span");
+  el.textContent = s;
+  return el.innerHTML;
+}
+
+function showError(msg) {
+  errorMsg.textContent = msg;
+  errorMsg.classList.add("visible");
+  errorMsg.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function hideError() {
+  errorMsg.classList.remove("visible");
+}
+</script>
+</body>
+</html>

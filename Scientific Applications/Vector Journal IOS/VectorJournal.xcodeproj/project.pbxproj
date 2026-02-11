@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0716F0BA4E1E793AD56EC133 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FABE8E47198070B89E939D /* OnboardingContainerView.swift */; };
+		0A74C2CFBCE3F78F52B12F1A /* CanonPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4C5D5F8D5EC6CF9A11E2D /* CanonPolicy.swift */; };
+		0AF8A58B84BC73373A431AB1 /* SystemPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBC1442E4FD1BED4B2337F /* SystemPrompt.swift */; };
+		0DE0F56D0F7650A447D47584 /* VectorFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087C63D6A93975E31369004 /* VectorFieldView.swift */; };
+		104D8F23DA2D98AB52332F84 /* CanonColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264F9C3A2548530E246B83D /* CanonColors.swift */; };
+		17AB0A818F6B3A28BBD059A6 /* JournalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946D369E5C6215979967BB0F /* JournalListView.swift */; };
+		1CBEF5CD567C11F159B172C3 /* ReferenceConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA105F90576E20959A793067 /* ReferenceConfirmationView.swift */; };
+		24ACE6B06B678C36044FADEC /* PerspectiveResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432AD490FD34236AA324FC1 /* PerspectiveResult.swift */; };
+		2FFD40B638148091EB1CE394 /* ReferenceChangeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239111CD76A848626C7783CF /* ReferenceChangeRecord.swift */; };
+		337439091F23FD5379C69725 /* VectorFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6219CC1F4F6C693E1A46E82 /* VectorFieldViewModel.swift */; };
+		3DD52DFFE04D79C0A4AB87AF /* ComposeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BD5AE9E8D6B9D48FB61A7 /* ComposeViewModel.swift */; };
+		3E014A69EC551D5B8AB2DAD7 /* MiniVectorIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8AE4C2DB8D997D7C89E49 /* MiniVectorIndicator.swift */; };
+		45D626B25CBB1485EBD0C4FD /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB7BC4DFCFA8E4E58E3672C /* EntryDetailView.swift */; };
+		49EEF3882491F1EE9B8BB32B /* ComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D7D495E087C74B644C8B9 /* ComposeView.swift */; };
+		5CA5ABD063109F9961CA847C /* EntryVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBE7D18B2B3017F1484FA71 /* EntryVector.swift */; };
+		5D8DB63119F6ECE9F5A15403 /* ReferenceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE2D41ED0312728E7D62BD5 /* ReferenceSelectionView.swift */; };
+		5F2ADDAB0E5B67A611AD4B23 /* CanonValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D0602A4E89AE52488D85DD /* CanonValidator.swift */; };
+		67A8BC13422898381CBA3B6B /* OpenAIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08C1FEFF24729DA7847AB55 /* OpenAIClient.swift */; };
+		68052FC593DD22C87D343F43 /* PerspectiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E03C7CF438C85891042F13 /* PerspectiveService.swift */; };
+		6E847829A20B2CBC463A4EAB /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 185615579C54CA0A92818F88 /* Shaders.metal */; };
+		746B5816A6E81348270A5796 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A34BB230687CC14B2041106 /* SettingsView.swift */; };
+		7AD5C117146DF160F11AB6AF /* ArcGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D285DC224CA79D75FCA39A21 /* ArcGeometry.swift */; };
+		7F3BA344FA9402105D24193B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A257421A78D0379E50D83B1 /* AppState.swift */; };
+		8A2633A7B6BE2EBA5C633F50 /* PrimaryReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EBAF697CB2F945BA8C2D0 /* PrimaryReference.swift */; };
+		8CDC83B068AD825F58983EEF /* GlyphIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFB567E5216CD5F906F419 /* GlyphIntroView.swift */; };
+		9D1BD13701D2A1EDD5BD412E /* VectorFieldRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680171BC5F382A987889068A /* VectorFieldRenderer.swift */; };
+		A08F1338A0FACB3302CF2C5F /* FirstEntryPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6091C07AAD3CFC9EA2926026 /* FirstEntryPromptView.swift */; };
+		A184A2CB75DC77EEEBEA9D4B /* MetalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791A4323244A02AAEB8C68A /* MetalTypes.swift */; };
+		A1DCE0875BBF87C300087638 /* VectorAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE07C7820881C787A617F497 /* VectorAnalysisService.swift */; };
+		A84EA6AAD04925DC0A136D00 /* VectorMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D3ED4D29971E13703F355F /* VectorMetalView.swift */; };
+		A8C14C0B38732FB504BD6487 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F011E9BE6BCC58B2B14A2D9 /* JournalEntry.swift */; };
+		AEB605C8069A0064D6BEDCF3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A508BDFF15C1779ADBDCDC5 /* RootView.swift */; };
+		B115848DBC9A78F4079EF4BE /* VectorJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E894238ECA0D39776A9CD57 /* VectorJournalApp.swift */; };
+		C0FBA6974D0407EBEB7D4E36 /* CanonFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0348611045BB519EB4A18CD /* CanonFonts.swift */; };
+		CECF13AD20E36089C4F083D6 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B7B0E834DB1A6E5969B50 /* SubscriptionService.swift */; };
+		DDE3489458278681E19B27A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BD6318FCE26946B962FEF7 /* Assets.xcassets */; };
+		E6DFB878790251969ADED176 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF61F7C396B47290A583F86B /* SubscriptionView.swift */; };
+		ECF44CF93E85D8F4C328C417 /* PerspectiveCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16994767DCB350AA7E6A949B /* PerspectiveCardView.swift */; };
+		F0DA9DC30E55F11B45AD3FD2 /* JournalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E77F8376D714B2EACF2C0 /* JournalListViewModel.swift */; };
+		F15E453B53A1D8104B1BFBF4 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956665F7706CCA603E45C86C /* UserProfile.swift */; };
+		F2F75283B17C86E2DF2EE3A7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54674103F1F5DB674FB80F94 /* OnboardingViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07D0602A4E89AE52488D85DD /* CanonValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanonValidator.swift; sourceTree = "<group>"; };
+		0A257421A78D0379E50D83B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		16994767DCB350AA7E6A949B /* PerspectiveCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveCardView.swift; sourceTree = "<group>"; };
+		185615579C54CA0A92818F88 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		1F011E9BE6BCC58B2B14A2D9 /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
+		239111CD76A848626C7783CF /* ReferenceChangeRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceChangeRecord.swift; sourceTree = "<group>"; };
+		2A508BDFF15C1779ADBDCDC5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		32FFB567E5216CD5F906F419 /* GlyphIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphIntroView.swift; sourceTree = "<group>"; };
+		45D3ED4D29971E13703F355F /* VectorMetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorMetalView.swift; sourceTree = "<group>"; };
+		478F489882FB56A66D5146DD /* VectorJournal.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = VectorJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E7D7D495E087C74B644C8B9 /* ComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeView.swift; sourceTree = "<group>"; };
+		54674103F1F5DB674FB80F94 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		5791A4323244A02AAEB8C68A /* MetalTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTypes.swift; sourceTree = "<group>"; };
+		57FABE8E47198070B89E939D /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
+		5F7EBAF697CB2F945BA8C2D0 /* PrimaryReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryReference.swift; sourceTree = "<group>"; };
+		6091C07AAD3CFC9EA2926026 /* FirstEntryPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstEntryPromptView.swift; sourceTree = "<group>"; };
+		6432AD490FD34236AA324FC1 /* PerspectiveResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveResult.swift; sourceTree = "<group>"; };
+		680171BC5F382A987889068A /* VectorFieldRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorFieldRenderer.swift; sourceTree = "<group>"; };
+		694E77F8376D714B2EACF2C0 /* JournalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListViewModel.swift; sourceTree = "<group>"; };
+		75E03C7CF438C85891042F13 /* PerspectiveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveService.swift; sourceTree = "<group>"; };
+		7F4DE9AE917D9DD778586A0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8087C63D6A93975E31369004 /* VectorFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorFieldView.swift; sourceTree = "<group>"; };
+		86BC02502B9E7BA5BEDA7352 /* VectorJournal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VectorJournal.entitlements; sourceTree = "<group>"; };
+		8A34BB230687CC14B2041106 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8DBE7D18B2B3017F1484FA71 /* EntryVector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryVector.swift; sourceTree = "<group>"; };
+		8E894238ECA0D39776A9CD57 /* VectorJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorJournalApp.swift; sourceTree = "<group>"; };
+		901BD5AE9E8D6B9D48FB61A7 /* ComposeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewModel.swift; sourceTree = "<group>"; };
+		90C4C5D5F8D5EC6CF9A11E2D /* CanonPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanonPolicy.swift; sourceTree = "<group>"; };
+		90D8AE4C2DB8D997D7C89E49 /* MiniVectorIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniVectorIndicator.swift; sourceTree = "<group>"; };
+		910B7B0E834DB1A6E5969B50 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
+		946D369E5C6215979967BB0F /* JournalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListView.swift; sourceTree = "<group>"; };
+		956665F7706CCA603E45C86C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		AA105F90576E20959A793067 /* ReferenceConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceConfirmationView.swift; sourceTree = "<group>"; };
+		ADEBC1442E4FD1BED4B2337F /* SystemPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPrompt.swift; sourceTree = "<group>"; };
+		BCB7BC4DFCFA8E4E58E3672C /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
+		BDE2D41ED0312728E7D62BD5 /* ReferenceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceSelectionView.swift; sourceTree = "<group>"; };
+		C08C1FEFF24729DA7847AB55 /* OpenAIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIClient.swift; sourceTree = "<group>"; };
+		C1BD6318FCE26946B962FEF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D285DC224CA79D75FCA39A21 /* ArcGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcGeometry.swift; sourceTree = "<group>"; };
+		DF61F7C396B47290A583F86B /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		E0348611045BB519EB4A18CD /* CanonFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanonFonts.swift; sourceTree = "<group>"; };
+		E264F9C3A2548530E246B83D /* CanonColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanonColors.swift; sourceTree = "<group>"; };
+		F6219CC1F4F6C693E1A46E82 /* VectorFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorFieldViewModel.swift; sourceTree = "<group>"; };
+		FE07C7820881C787A617F497 /* VectorAnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorAnalysisService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1C4F097E6DFC4E117B7E1451 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				D285DC224CA79D75FCA39A21 /* ArcGeometry.swift */,
+				5791A4323244A02AAEB8C68A /* MetalTypes.swift */,
+				185615579C54CA0A92818F88 /* Shaders.metal */,
+				680171BC5F382A987889068A /* VectorFieldRenderer.swift */,
+				45D3ED4D29971E13703F355F /* VectorMetalView.swift */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		1CCC2FE47EDCAB24DF729869 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				DF61F7C396B47290A583F86B /* SubscriptionView.swift */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
+		2EC8200A71802E5999A12817 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8A34BB230687CC14B2041106 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		35C8BB08C49527AF64CC0DE1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0A257421A78D0379E50D83B1 /* AppState.swift */,
+				2A508BDFF15C1779ADBDCDC5 /* RootView.swift */,
+				8E894238ECA0D39776A9CD57 /* VectorJournalApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		35E0B42C1681E24A412772FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CBDAB00102A9282C0663136 /* Components */,
+				D1A618B2CC72793A265FC926 /* Journal */,
+				87004398D3DE3D29EFCAC7A6 /* Onboarding */,
+				2EC8200A71802E5999A12817 /* Settings */,
+				1CCC2FE47EDCAB24DF729869 /* Subscription */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5CBDAB00102A9282C0663136 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				90D8AE4C2DB8D997D7C89E49 /* MiniVectorIndicator.swift */,
+				16994767DCB350AA7E6A949B /* PerspectiveCardView.swift */,
+				8087C63D6A93975E31369004 /* VectorFieldView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		70EAE59D9B6A48B41B51B9CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8DBE7D18B2B3017F1484FA71 /* EntryVector.swift */,
+				1F011E9BE6BCC58B2B14A2D9 /* JournalEntry.swift */,
+				6432AD490FD34236AA324FC1 /* PerspectiveResult.swift */,
+				5F7EBAF697CB2F945BA8C2D0 /* PrimaryReference.swift */,
+				239111CD76A848626C7783CF /* ReferenceChangeRecord.swift */,
+				956665F7706CCA603E45C86C /* UserProfile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		743D77AEC9670DFD69DE9C44 /* Canon */ = {
+			isa = PBXGroup;
+			children = (
+				E264F9C3A2548530E246B83D /* CanonColors.swift */,
+				E0348611045BB519EB4A18CD /* CanonFonts.swift */,
+				90C4C5D5F8D5EC6CF9A11E2D /* CanonPolicy.swift */,
+				07D0602A4E89AE52488D85DD /* CanonValidator.swift */,
+				ADEBC1442E4FD1BED4B2337F /* SystemPrompt.swift */,
+			);
+			path = Canon;
+			sourceTree = "<group>";
+		};
+		769606E5558B6CE4DEB1E3AA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		87004398D3DE3D29EFCAC7A6 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				6091C07AAD3CFC9EA2926026 /* FirstEntryPromptView.swift */,
+				32FFB567E5216CD5F906F419 /* GlyphIntroView.swift */,
+				57FABE8E47198070B89E939D /* OnboardingContainerView.swift */,
+				AA105F90576E20959A793067 /* ReferenceConfirmationView.swift */,
+				BDE2D41ED0312728E7D62BD5 /* ReferenceSelectionView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		8783A973D92A1C645A7F5F0F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C08C1FEFF24729DA7847AB55 /* OpenAIClient.swift */,
+				75E03C7CF438C85891042F13 /* PerspectiveService.swift */,
+				910B7B0E834DB1A6E5969B50 /* SubscriptionService.swift */,
+				FE07C7820881C787A617F497 /* VectorAnalysisService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B8FBAB95E846F937BF528B57 /* VectorJournal */ = {
+			isa = PBXGroup;
+			children = (
+				C1BD6318FCE26946B962FEF7 /* Assets.xcassets */,
+				7F4DE9AE917D9DD778586A0F /* Info.plist */,
+				86BC02502B9E7BA5BEDA7352 /* VectorJournal.entitlements */,
+				35C8BB08C49527AF64CC0DE1 /* App */,
+				743D77AEC9670DFD69DE9C44 /* Canon */,
+				1C4F097E6DFC4E117B7E1451 /* Metal */,
+				70EAE59D9B6A48B41B51B9CD /* Models */,
+				8783A973D92A1C645A7F5F0F /* Services */,
+				769606E5558B6CE4DEB1E3AA /* Utilities */,
+				C2DEEC6C870D0D0FD4434CEE /* ViewModels */,
+				35E0B42C1681E24A412772FE /* Views */,
+			);
+			path = VectorJournal;
+			sourceTree = "<group>";
+		};
+		C2DEEC6C870D0D0FD4434CEE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				901BD5AE9E8D6B9D48FB61A7 /* ComposeViewModel.swift */,
+				694E77F8376D714B2EACF2C0 /* JournalListViewModel.swift */,
+				54674103F1F5DB674FB80F94 /* OnboardingViewModel.swift */,
+				F6219CC1F4F6C693E1A46E82 /* VectorFieldViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D1A618B2CC72793A265FC926 /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				4E7D7D495E087C74B644C8B9 /* ComposeView.swift */,
+				BCB7BC4DFCFA8E4E58E3672C /* EntryDetailView.swift */,
+				946D369E5C6215979967BB0F /* JournalListView.swift */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		EB689D31A85ADE73C2F67603 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				478F489882FB56A66D5146DD /* VectorJournal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F969F201C0290AEDBF07529F = {
+			isa = PBXGroup;
+			children = (
+				B8FBAB95E846F937BF528B57 /* VectorJournal */,
+				EB689D31A85ADE73C2F67603 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0238676735BA507275EAAB0 /* VectorJournal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 879B91077E1060EDB8C3E942 /* Build configuration list for PBXNativeTarget "VectorJournal" */;
+			buildPhases = (
+				6CD7ECC09FAF13B597E710FF /* Sources */,
+				D42D9BD320051DD0FB80B926 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VectorJournal;
+			packageProductDependencies = (
+			);
+			productName = VectorJournal;
+			productReference = 478F489882FB56A66D5146DD /* VectorJournal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66295979A7A179B6DFA46857 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					D0238676735BA507275EAAB0 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 214599834809163B35B7E5DE /* Build configuration list for PBXProject "VectorJournal" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = F969F201C0290AEDBF07529F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0238676735BA507275EAAB0 /* VectorJournal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D42D9BD320051DD0FB80B926 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDE3489458278681E19B27A0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6CD7ECC09FAF13B597E710FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F3BA344FA9402105D24193B /* AppState.swift in Sources */,
+				7AD5C117146DF160F11AB6AF /* ArcGeometry.swift in Sources */,
+				104D8F23DA2D98AB52332F84 /* CanonColors.swift in Sources */,
+				C0FBA6974D0407EBEB7D4E36 /* CanonFonts.swift in Sources */,
+				0A74C2CFBCE3F78F52B12F1A /* CanonPolicy.swift in Sources */,
+				5F2ADDAB0E5B67A611AD4B23 /* CanonValidator.swift in Sources */,
+				49EEF3882491F1EE9B8BB32B /* ComposeView.swift in Sources */,
+				3DD52DFFE04D79C0A4AB87AF /* ComposeViewModel.swift in Sources */,
+				45D626B25CBB1485EBD0C4FD /* EntryDetailView.swift in Sources */,
+				5CA5ABD063109F9961CA847C /* EntryVector.swift in Sources */,
+				A08F1338A0FACB3302CF2C5F /* FirstEntryPromptView.swift in Sources */,
+				8CDC83B068AD825F58983EEF /* GlyphIntroView.swift in Sources */,
+				A8C14C0B38732FB504BD6487 /* JournalEntry.swift in Sources */,
+				17AB0A818F6B3A28BBD059A6 /* JournalListView.swift in Sources */,
+				F0DA9DC30E55F11B45AD3FD2 /* JournalListViewModel.swift in Sources */,
+				A184A2CB75DC77EEEBEA9D4B /* MetalTypes.swift in Sources */,
+				3E014A69EC551D5B8AB2DAD7 /* MiniVectorIndicator.swift in Sources */,
+				0716F0BA4E1E793AD56EC133 /* OnboardingContainerView.swift in Sources */,
+				F2F75283B17C86E2DF2EE3A7 /* OnboardingViewModel.swift in Sources */,
+				67A8BC13422898381CBA3B6B /* OpenAIClient.swift in Sources */,
+				ECF44CF93E85D8F4C328C417 /* PerspectiveCardView.swift in Sources */,
+				24ACE6B06B678C36044FADEC /* PerspectiveResult.swift in Sources */,
+				68052FC593DD22C87D343F43 /* PerspectiveService.swift in Sources */,
+				8A2633A7B6BE2EBA5C633F50 /* PrimaryReference.swift in Sources */,
+				2FFD40B638148091EB1CE394 /* ReferenceChangeRecord.swift in Sources */,
+				1CBEF5CD567C11F159B172C3 /* ReferenceConfirmationView.swift in Sources */,
+				5D8DB63119F6ECE9F5A15403 /* ReferenceSelectionView.swift in Sources */,
+				AEB605C8069A0064D6BEDCF3 /* RootView.swift in Sources */,
+				746B5816A6E81348270A5796 /* SettingsView.swift in Sources */,
+				6E847829A20B2CBC463A4EAB /* Shaders.metal in Sources */,
+				CECF13AD20E36089C4F083D6 /* SubscriptionService.swift in Sources */,
+				E6DFB878790251969ADED176 /* SubscriptionView.swift in Sources */,
+				0AF8A58B84BC73373A431AB1 /* SystemPrompt.swift in Sources */,
+				F15E453B53A1D8104B1BFBF4 /* UserProfile.swift in Sources */,
+				A1DCE0875BBF87C300087638 /* VectorAnalysisService.swift in Sources */,
+				9D1BD13701D2A1EDD5BD412E /* VectorFieldRenderer.swift in Sources */,
+				0DE0F56D0F7650A447D47584 /* VectorFieldView.swift in Sources */,
+				337439091F23FD5379C69725 /* VectorFieldViewModel.swift in Sources */,
+				B115848DBC9A78F4079EF4BE /* VectorJournalApp.swift in Sources */,
+				A84EA6AAD04925DC0A136D00 /* VectorMetalView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		07B58D5F05881DDF43C53A16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VectorJournal/VectorJournal.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = VectorJournal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectorjournal.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		080589DAB97396C9D7F8F52B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VectorJournal/VectorJournal.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = VectorJournal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectorjournal.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1A6F619553900BD2C0BCB886 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = VectorJournal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectorjournal.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		350E0E4B36439568D8CCBA37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = VectorJournal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectorjournal.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		214599834809163B35B7E5DE /* Build configuration list for PBXProject "VectorJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				350E0E4B36439568D8CCBA37 /* Debug */,
+				1A6F619553900BD2C0BCB886 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		879B91077E1060EDB8C3E942 /* Build configuration list for PBXNativeTarget "VectorJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B58D5F05881DDF43C53A16 /* Debug */,
+				080589DAB97396C9D7F8F52B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66295979A7A179B6DFA46857 /* Project object */;
+}

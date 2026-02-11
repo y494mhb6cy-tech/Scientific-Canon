@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#010409"/>
+    </radialGradient>
+    
+    <!-- Core glow -->
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#1f6feb" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- F - Frame gradient (cyan/teal) -->
+    <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#79c0ff"/>
+      <stop offset="50%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#1f6feb"/>
+    </linearGradient>
+    
+    <!-- G - Gradient gradient (amber/gold) -->
+    <linearGradient id="gradientGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0883e"/>
+      <stop offset="50%" stop-color="#d29922"/>
+      <stop offset="100%" stop-color="#e3b341"/>
+    </linearGradient>
+    
+    <!-- V - Vector gradient (magenta/purple) -->
+    <linearGradient id="vectorGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bc8cff"/>
+      <stop offset="50%" stop-color="#a371f7"/>
+      <stop offset="100%" stop-color="#8957e5"/>
+    </linearGradient>
+    
+    <!-- Xi center gradient -->
+    <radialGradient id="xiGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0f6fc"/>
+      <stop offset="40%" stop-color="#c9d1d9"/>
+      <stop offset="100%" stop-color="#8b949e"/>
+    </radialGradient>
+    
+    <!-- Glow filters -->
+    <filter id="glowBlue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#58a6ff" flood-opacity="0.6"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glowAmber" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#d29922" flood-opacity="0.6"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glowPurple" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#a371f7" flood-opacity="0.6"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glowWhite" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#f0f6fc" flood-opacity="0.5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    
+    <!-- Arrow marker for vectors -->
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#a371f7"/>
+    </marker>
+    
+    <!-- Dot pattern for constraint field -->
+    <pattern id="constraintDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.5" fill="#d29922" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bgGrad)"/>
+  
+  <!-- Ambient core glow -->
+  <circle cx="400" cy="400" r="350" fill="url(#coreGlow)" filter="url(#softGlow)"/>
+  
+  <!-- Outer boundary ring - represents the complete system -->
+  <circle cx="400" cy="400" r="340" fill="none" stroke="#30363d" stroke-width="1" opacity="0.5"/>
+  <circle cx="400" cy="400" r="335" fill="none" stroke="#21262d" stroke-width="0.5" stroke-dasharray="2 4"/>
+  
+  <!-- Triadic structure - outer triangle connecting F, G, V -->
+  <!-- Positions: F at top, G at bottom-left, V at bottom-right (120° apart) -->
+  <!-- F: 400, 150 | G: 183, 525 | V: 617, 525 -->
+  
+  <!-- Co-dependence bonds (the · relationships) - curved arcs -->
+  <g stroke-width="2" fill="none" opacity="0.6">
+    <!-- F·G bond -->
+    <path d="M 360,180 Q 200,350 220,480" stroke="url(#frameGrad)" stroke-dasharray="8 4"/>
+    <!-- G·V bond -->
+    <path d="M 260,540 Q 400,620 540,540" stroke="url(#gradientGrad)" stroke-dasharray="8 4"/>
+    <!-- V·F bond -->
+    <path d="M 580,480 Q 600,350 440,180" stroke="url(#vectorGrad)" stroke-dasharray="8 4"/>
+  </g>
+  
+  <!-- Inner triangle - solid connections showing structural integrity -->
+  <polygon points="400,200 230,500 570,500" fill="none" stroke="#484f58" stroke-width="1.5" opacity="0.4"/>
+  
+  <!-- Constraint field (G influence area) - subtle pattern -->
+  <circle cx="400" cy="400" r="180" fill="url(#constraintDots)" opacity="0.3"/>
+  
+  <!-- F - FRAME node (top) - represents observability/reference -->
+  <g transform="translate(400, 170)" filter="url(#glowBlue)">
+    <!-- Frame symbol - nested squares representing reference frame -->
+    <rect x="-40" y="-40" width="80" height="80" fill="none" stroke="url(#frameGrad)" stroke-width="2" rx="4"/>
+    <rect x="-28" y="-28" width="56" height="56" fill="none" stroke="url(#frameGrad)" stroke-width="1.5" rx="2"/>
+    <rect x="-16" y="-16" width="32" height="32" fill="#0d1117" stroke="url(#frameGrad)" stroke-width="1" rx="1"/>
+    <!-- Crosshairs for positioning -->
+    <line x1="-12" y1="0" x2="12" y2="0" stroke="#79c0ff" stroke-width="1"/>
+    <line x1="0" y1="-12" x2="0" y2="12" stroke="#79c0ff" stroke-width="1"/>
+    <circle cx="0" cy="0" r="3" fill="#79c0ff"/>
+  </g>
+  <text x="400" y="95" text-anchor="middle" fill="#79c0ff" font-family="'SF Mono', 'Fira Code', monospace" font-size="24" font-weight="600">F</text>
+  <text x="400" y="115" text-anchor="middle" fill="#58a6ff" font-family="'SF Mono', 'Fira Code', monospace" font-size="11" opacity="0.8">FRAME</text>
+  
+  <!-- G - GRADIENT node (bottom-left) - represents constraint structure -->
+  <g transform="translate(210, 510)" filter="url(#glowAmber)">
+    <!-- Gradient symbol - layered chevrons showing constraint levels -->
+    <path d="M 0,-35 L 35,0 L 0,35 L -35,0 Z" fill="none" stroke="url(#gradientGrad)" stroke-width="2"/>
+    <path d="M 0,-22 L 22,0 L 0,22 L -22,0 Z" fill="none" stroke="url(#gradientGrad)" stroke-width="1.5"/>
+    <path d="M 0,-10 L 10,0 L 0,10 L -10,0 Z" fill="#0d1117" stroke="url(#gradientGrad)" stroke-width="1"/>
+    <!-- Gradient lines -->
+    <line x1="-6" y1="-3" x2="6" y2="-3" stroke="#e3b341" stroke-width="1" opacity="0.8"/>
+    <line x1="-4" y1="0" x2="4" y2="0" stroke="#d29922" stroke-width="1.5"/>
+    <line x1="-6" y1="3" x2="6" y2="3" stroke="#f0883e" stroke-width="1" opacity="0.8"/>
+  </g>
+  <text x="210" y="580" text-anchor="middle" fill="#e3b341" font-family="'SF Mono', 'Fira Code', monospace" font-size="24" font-weight="600">G</text>
+  <text x="210" y="600" text-anchor="middle" fill="#d29922" font-family="'SF Mono', 'Fira Code', monospace" font-size="11" opacity="0.8">GRADIENT</text>
+  
+  <!-- V - VECTOR node (bottom-right) - represents directed action -->
+  <g transform="translate(590, 510)" filter="url(#glowPurple)">
+    <!-- Vector symbol - arrow in circle -->
+    <circle cx="0" cy="0" r="38" fill="none" stroke="url(#vectorGrad)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="26" fill="none" stroke="url(#vectorGrad)" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="14" fill="#0d1117" stroke="url(#vectorGrad)" stroke-width="1"/>
+    <!-- Direction arrow -->
+    <line x1="-20" y1="8" x2="15" y2="-12" stroke="#bc8cff" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="20,-15 10,-8 14,-18" fill="#bc8cff"/>
+  </g>
+  <text x="590" y="580" text-anchor="middle" fill="#bc8cff" font-family="'SF Mono', 'Fira Code', monospace" font-size="24" font-weight="600">V</text>
+  <text x="590" y="600" text-anchor="middle" fill="#a371f7" font-family="'SF Mono', 'Fira Code', monospace" font-size="11" opacity="0.8">VECTOR</text>
+  
+  <!-- Central Xi (Ξ) symbol - coherence point -->
+  <g transform="translate(400, 400)" filter="url(#glowWhite)">
+    <circle cx="0" cy="0" r="55" fill="#0d1117" stroke="#484f58" stroke-width="1"/>
+    <circle cx="0" cy="0" r="45" fill="none" stroke="url(#xiGrad)" stroke-width="2"/>
+    <!-- Xi symbol using three horizontal bars -->
+    <line x1="-20" y1="-15" x2="20" y2="-15" stroke="#f0f6fc" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-16" y1="0" x2="16" y2="0" stroke="#c9d1d9" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-20" y1="15" x2="20" y2="15" stroke="#f0f6fc" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Flow lines from each node to center - representing contribution to coherence -->
+  <g stroke-width="1.5" fill="none" opacity="0.5">
+    <line x1="400" y1="230" x2="400" y2="345" stroke="#58a6ff" stroke-dasharray="4 6"/>
+    <line x1="250" y1="485" x2="355" y2="420" stroke="#d29922" stroke-dasharray="4 6"/>
+    <line x1="550" y1="485" x2="445" y2="420" stroke="#a371f7" stroke-dasharray="4 6"/>
+  </g>
+  
+  <!-- Co-dependence dots (·) on the bonds -->
+  <g fill="#8b949e">
+    <circle cx="270" cy="330" r="4"/>
+    <circle cx="400" cy="560" r="4"/>
+    <circle cx="530" cy="330" r="4"/>
+  </g>
+  
+  <!-- Collapse condition indicators - small warning markers outside -->
+  <!-- F→0 -->
+  <g transform="translate(400, 55)" opacity="0.6">
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#f85149" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="0" y="4" text-anchor="middle" fill="#f85149" font-family="'SF Mono', monospace" font-size="10">∅</text>
+  </g>
+  
+  <!-- G→0 -->
+  <g transform="translate(95, 580)" opacity="0.6">
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#f85149" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="0" y="4" text-anchor="middle" fill="#f85149" font-family="'SF Mono', monospace" font-size="10">∅</text>
+  </g>
+  
+  <!-- V→0 -->
+  <g transform="translate(705, 580)" opacity="0.6">
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#f85149" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="0" y="4" text-anchor="middle" fill="#f85149" font-family="'SF Mono', monospace" font-size="10">∅</text>
+  </g>
+  
+  <!-- Absorption arrows (collapse conditions) - subtle indicators -->
+  <!-- F←G indicator -->
+  <g transform="translate(290, 320)" opacity="0.35">
+    <path d="M -8,8 L 8,-8" stroke="#f0883e" stroke-width="1"/>
+    <polygon points="-10,6 -6,10 -12,12" fill="#f0883e"/>
+  </g>
+  
+  <!-- G←V indicator -->
+  <g transform="translate(400, 535)" opacity="0.35">
+    <path d="M 8,0 L -8,0" stroke="#a371f7" stroke-width="1"/>
+    <polygon points="-10,-4 -10,4 -14,0" fill="#a371f7"/>
+  </g>
+  
+  <!-- V←F indicator -->
+  <g transform="translate(510, 320)" opacity="0.35">
+    <path d="M 8,8 L -8,-8" stroke="#58a6ff" stroke-width="1"/>
+    <polygon points="10,6 6,10 12,12" fill="#58a6ff"/>
+  </g>
+  
+  <!-- Equation notation at bottom -->
+  <text x="400" y="710" text-anchor="middle" fill="#c9d1d9" font-family="'SF Mono', 'Fira Code', monospace" font-size="20" letter-spacing="2">
+    Ξ = { F · G · V }
+  </text>
+  <text x="400" y="735" text-anchor="middle" fill="#8b949e" font-family="'SF Mono', 'Fira Code', monospace" font-size="11">
+    symmetric coherence through structural co-dependence
+  </text>
+  
+  <!-- Outer decorative elements suggesting infinite extension -->
+  <g stroke="#30363d" stroke-width="0.5" opacity="0.4">
+    <!-- Radial lines extending outward -->
+    <line x1="400" y1="10" x2="400" y2="40" />
+    <line x1="400" y1="760" x2="400" y2="790" />
+    <line x1="10" y1="400" x2="40" y2="400" />
+    <line x1="760" y1="400" x2="790" y2="400" />
+  </g>
+  
+  <!-- Corner markers -->
+  <g stroke="#21262d" stroke-width="1" fill="none" opacity="0.5">
+    <path d="M 30,60 L 30,30 L 60,30"/>
+    <path d="M 740,60 L 740,30 L 770,30"/>
+    <path d="M 30,740 L 30,770 L 60,770"/>
+    <path d="M 740,740 L 740,770 L 770,770"/>
+  </g>
+</svg>

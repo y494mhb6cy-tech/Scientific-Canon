@@ -1,0 +1,16 @@
+{
+  "anchor": "operators create identity governance validates moderation ensures coherence",
+  "task": "Using only this repo, produce a 6-step chain (file + heading) that best supports the anchor, then output a 2-sentence compression that preserves the anchor language.",
+
+  "condition_A": {
+    "name": "curved",
+    "description": "Normal helpful repo reasoning with paraphrase allowed",
+    "prompt": "TASK: Using only this repo's markdown files, produce a 6-step chain that explores and supports this concept:\n\n\"operators create identity governance validates moderation ensures coherence\"\n\nINSTRUCTIONS:\n- For each step, cite a file and heading from the repo.\n- Be insightful. You may paraphrase and reframe ideas.\n- Explore related concepts and make connections.\n- After the 6 steps, write a 2-sentence compression/summary.\n\nFirst, read the repo files to understand the content, then produce your chain.\n\nFORMAT:\nStep 1: [file.md > Heading] - your insight\nStep 2: ...\n...\nStep 6: ...\n\nCOMPRESSION: [2 sentences]"
+  },
+
+  "condition_B": {
+    "name": "straight_line",
+    "description": "Invariant-preserving traversal with no new frames",
+    "prompt": "TASK: Using only this repo's markdown files, produce a 6-step chain that supports this ANCHOR (invariant):\n\n\"operators create identity governance validates moderation ensures coherence\"\n\nSTRICT RULES (Dimensional Reference Script):\n1. INVARIANT FIRST: Begin by restating the anchor exactly.\n2. NO NEW PRIMITIVES: Do not introduce concepts outside the anchor vocabulary.\n3. NO NEW FRAMES: Do not reframe or introduce alternative perspectives.\n4. CITE EVERY STEP: Each step must cite [file.md > Heading].\n5. PREFER ANCHOR TERMS: Select content that reuses words from the anchor.\n6. PENALIZE NOVELTY: Avoid introducing new terminology.\n7. STOP ON CLOSURE: If a step would require new reference points, stop early.\n8. FINAL COMPRESSION: End with exactly 2 sentences that repeat the anchor verbatim.\n\nForbidden words: however, alternatively, on the other hand, another perspective, might, maybe, could, perhaps, arguably\n\nFirst, read the repo files, then produce your chain.\n\nFORMAT:\nANCHOR: \"operators create identity governance validates moderation ensures coherence\"\n\nStep 1: [file.md > Heading] - [anchor-preserving statement]\nStep 2: ...\n...\nStep N: ... (stop at 6 or earlier if closure reached)\n\nCOMPRESSION: [2 sentences containing the anchor verbatim]"
+  }
+}
